@@ -116,12 +116,23 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
 add_executable(pub_setpoints_pos src/pub_setpoints_pos.cpp)
 target_link_libraries(pub_setpoints_pos ${catkin_LIBRARIES})
 
+add_executable(pub_setpoints_traj src/pub_setpoints_traj.cpp)
+target_link_libraries(pub_setpoints_traj ${catkin_LIBRARIES})
+
 add_executable(nav_route src/nav_route.cpp)
 target_link_libraries(nav_route ${catkin_LIBRARIES})
+
+add_executable(mavros_teleop_key src/mavros_teleop_key.cpp)
+target_link_libraries(mavros_teleop_key ${catkin_LIBRARIES})
+
+
+find_package(octomap REQUIRED)
+include_directories(${OCTOMAP_INCLUDE_DIRS})
+link_libraries(${OCTOMAP_LIBRARIES})
