@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  mavros_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -132,7 +133,8 @@ target_link_libraries(nav_route ${catkin_LIBRARIES})
 add_executable(mavros_teleop_key src/mavros_teleop_key.cpp)
 target_link_libraries(mavros_teleop_key ${catkin_LIBRARIES})
 
+add_executable(offb_node src/offb_node.cpp)
+target_link_libraries(offb_node ${catkin_LIBRARIES})
 
-find_package(octomap REQUIRED)
-include_directories(${OCTOMAP_INCLUDE_DIRS})
-link_libraries(${OCTOMAP_LIBRARIES})
+
+
